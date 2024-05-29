@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキストコピー</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="textToCopy" value="ここにコピーしたいテキストを入力">
+        <button onclick="copyText()">コピー</button>
+    </div>
+    <script>
+        function copyText() {
+            var copyText = document.getElementById("textToCopy");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // モバイルデバイス向けの選択範囲設定
+
+            // クリップボードにコピー
+            document.execCommand("copy");
+
+            // コピー完了の通知（オプション）
+            alert("コピーしました: " + copyText.value);
+        }
+    </script>
+</body>
+</html>
